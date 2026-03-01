@@ -509,21 +509,71 @@ function ThemeBuilder({ researchers, onSelect, filter }) {
   };
 
   const autoAssign = () => {
-    const a = {};
-    filtered.forEach(r => {
-      const t = r.topics.join(' ').toLowerCase();
-      const g = (r.group || '').toLowerCase();
-      if (g.includes('hydrogeology') || /groundwater|pfas|contamin|remediat|subsurface util|ates |underground|pore.scale|reactive transport.*sub/.test(t)) {
-        a[r.id] = 'gw_quality';
-      } else if (/water.qual|nutrient|phospho|redox|mineral nucle|radionucl|inland water|n\/p|metal.*cycl|drink|sediment.*biogeochem|benthic.*photo|microb.*cycl|bioturb/.test(t)) {
-        a[r.id] = 'water_geochem';
-      } else if (/ocean|marine|alkalin|blue.carbon|oae|cdr|silicate|coastal|harmful.*algal|eutrophic|sea.level|dinoflag|antarc|eocene|climate.*past|paleoclim|carbon.*cycl|land.*ocean|proxy|turbid|submarine|deep.*water|sediment.*dynam|basin.*evol/.test(t)) {
-        a[r.id] = 'ocean_health';
-      } else if (/mineral|ferrous|particulate|imaging|stone.*weather|environ.*mineral/.test(t)) {
-        a[r.id] = 'integrated';
-      }
+    const newA = {};
+    filtered.forEach(function(r) {
+      var t = r.topics.join(' ').toLowerCase();
+      var g = (r.group || '').toLowerCase();
+      var assigned = false;
+      // Rule 1: Hydrogeology group or groundwater topics
+      if (!assigned && g.indexOf('hydrogeology') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('groundwater') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('pfas') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('contamin') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('remediat') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('subsurface util') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('underground') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('pore-scale') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      if (!assigned && t.indexOf('reactive transport in sub') >= 0) { newA[r.id] = 'gw_quality'; assigned = true; }
+      // Rule 2: Water geochemistry topics
+      if (!assigned && t.indexOf('water qual') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('nutrient') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('phospho') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('redox') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('mineral nucle') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('radionucl') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('inland water') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('n/p') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('drink') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('biogeochem') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('benthic photo') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('microbial element') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      if (!assigned && t.indexOf('bioturb') >= 0) { newA[r.id] = 'water_geochem'; assigned = true; }
+      // Rule 3: Ocean health topics
+      if (!assigned && t.indexOf('ocean') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('marine') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('alkalin') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('blue carbon') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('oae') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('cdr') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('silicate') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('coastal') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('harmful') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('eutrophic') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('antarc') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('eocene') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('paleoclim') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('carbon cycl') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('land-ocean') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('proxy') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('submarine') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('deep-water') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('dinocyst') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('dinoflag') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('sediment dynam') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('sediment transport') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('basin evol') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('climate change') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('co2') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('acidif') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('sea level') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('seagrass') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('organic matter') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      if (!assigned && t.indexOf('earth system') >= 0) { newA[r.id] = 'ocean_health'; assigned = true; }
+      // Rule 4: Integrated expertise
+      if (!assigned && t.indexOf('imaging') >= 0) { newA[r.id] = 'integrated'; assigned = true; }
+      if (!assigned && t.indexOf('stone weather') >= 0) { newA[r.id] = 'integrated'; assigned = true; }
     });
-    setAssignments(a);
+    setAssignments(newA);
   };
 
   return (
