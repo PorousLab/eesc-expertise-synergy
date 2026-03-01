@@ -12,13 +12,13 @@ const RESEARCHERS = [
   { id: "zech", name: "Alraune Zech", position: "Assistant Professor", group: "Env. Hydrogeology", email: "a.zech@uu.nl",
     expertise: "Computational environmental hydrogeology, stochastic modelling",
     skills: ["Numerical Modelling","Field Work","Statistical / Data Science"],
-    topics: ["PFAS remediation","Contaminant transport","Groundwater flow","Virus transport"],
+    topics: ["PFAS remediation","Contaminant transport","Groundwater flow","Virus transport","Groundwater protection"],
     pillars: ["Water Quality"], projects: "Living Lab PFAS (€2.45M), MIBIREM (EU), SilPit (NWO)", external: "TNO, UFZ Helmholtz",
     pubs: "PFAS Living Lab field investigations (2024)", hindex: null },
   { id: "cnudde", name: "Veerle Cnudde", position: "Professor", group: "Env. Hydrogeology", email: "v.cnudde@uu.nl",
     expertise: "Porous media imaging techniques, X-ray micro-CT",
     skills: ["Experimental Lab Work","X-ray / Imaging"],
-    topics: ["Fluid flow in porous rocks","Stone weathering","Microbial-induced processes"],
+    topics: ["Fluid flow in porous rocks","Stone weathering","Microbial-induced processes","Subsurface characterization"],
     pillars: ["Water Quality"], projects: "BugControl (NWO VICI), InFUSE", external: "Ghent Univ., PSI Switzerland",
     pubs: "BugControl VICI project outputs (2023–2025)", hindex: null },
   { id: "behrends", name: "Thilo Behrends", position: "Associate Professor", group: "Geochemistry", email: "t.behrends@uu.nl",
@@ -100,15 +100,15 @@ const RESEARCHERS = [
     pillars: ["Ocean Health"], projects: "Stratigraphy projects", external: "International network",
     pubs: "Basin stratigraphy (2023–24)", hindex: null },
   { id: "raoof", name: "Amir Raoof", position: "Associate Professor", group: "Env. Hydrogeology / UCSSU", email: "a.raoof@uu.nl",
-    expertise: "Reactive transport, pore-scale modelling",
+    expertise: "Reactive transport, pore-scale modelling, groundwater quality & remediation",
     skills: ["Experimental Lab Work","Numerical Modelling","Field Work","X-ray / Imaging","Reactive Transport Modelling","Science Communication"],
-    topics: ["Reactive transport in subsurface","Pore-scale processes"],
+    topics: ["Reactive transport in subsurface","Pore-scale processes","Contaminant fate & transport","PFAS","Groundwater protection & remediation","Subsurface utilization (ATES, drinking water)"],
     pillars: ["Water Quality"], projects: "UCSSU coordinator, InFocus", external: "TNO-GDN",
     pubs: "Poreflow platform development (2024)", hindex: null },
   { id: "sweijen", name: "Thomas Sweijen", position: "Assistant Professor", group: "Env. Hydrogeology / UCSSU", email: "t.sweijen@uu.nl",
-    expertise: "Hydrogeology, subsurface sustainability",
+    expertise: "Hydrogeology, subsurface sustainability, groundwater remediation",
     skills: ["Experimental Lab Work","Numerical Modelling","Field Work"],
-    topics: ["Subsurface sustainability","Groundwater"],
+    topics: ["Subsurface sustainability","Groundwater flow & quality","Subsurface utilization (ATES, drinking water)","Underground constructions"],
     pillars: ["Water Quality"], projects: "UCSSU projects", external: "TNO",
     pubs: "Groundwater modelling studies (2024)", hindex: null },
 ];
@@ -471,10 +471,10 @@ function SynergyPairs({ researchers, onSelect, filter }) {
 
 // ─── THEME BUILDER (new feature) ────────────────────────────────────────
 const CANDIDATE_THEMES = [
-  { id: "biogeochem", name: "Biogeochemical Cycling & Water Quality", color: "#1B6B93", icon: "💧" },
-  { id: "ocean_carbon", name: "Ocean Carbon & CDR", color: "#2D8F6F", icon: "🌊" },
-  { id: "paleo_climate", name: "Paleoclimate & Ocean Change", color: "#6B4FA0", icon: "🌍" },
-  { id: "monitoring", name: "Environmental Monitoring & Remediation", color: "#D4830E", icon: "🔬" },
+  { id: "gw_quality", name: "Groundwater Quality, Utilization & Remediation", color: "#2563EB", icon: "💧" },
+  { id: "water_geochem", name: "Water Geochemistry & Biogeochemistry", color: "#1B6B93", icon: "⚗" },
+  { id: "ocean_health", name: "Ocean Health & Solutions", color: "#059669", icon: "🌊" },
+  { id: "integrated", name: "Integrated Expertise (Environmental Mineralogy)", color: "#D97706", icon: "🔬" },
 ];
 
 function ThemeBuilder({ researchers, onSelect, filter }) {
