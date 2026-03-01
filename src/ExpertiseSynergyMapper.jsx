@@ -46,23 +46,23 @@ const RESEARCHERS = [
     pillars: ["Water Quality","Ocean Health"], projects: "Mind The Gap (ERC + eScience)", external: "Deltares, PBL, eScience Center",
     pubs: "Nature Water, Nature Sustainability (2024)", hindex: null },
   { id: "geilert", name: "Sonja Geilert", position: "Assistant Professor", group: "Geochemistry", email: "s.geilert@uu.nl",
-    expertise: "Marine geochemistry, silica-carbon cycle, stable isotopes",
+    expertise: "Marine geochemistry, silica-carbon cycle, stable isotopes, ocean CDR",
     skills: ["Experimental Lab Work","Field Work","Stable Isotope Analysis","Geochemical Modelling"],
-    topics: ["Marine silicate weathering","Ocean alkalinity enhancement","Carbon dioxide removal","Hadean ocean"],
-    pillars: ["Ocean Health"], projects: "SILICYCLE (NWO Vidi), RETAKE/CDRmare", external: "GEOMAR Kiel, CDRmare consortium",
-    pubs: "Nature Comms, Frontiers Climate (2023–24)", hindex: null },
+    topics: ["Marine silicate weathering","Ocean alkalinity enhancement","Carbon dioxide removal","Enhanced benthic weathering","Mineral-water reactions"],
+    pillars: ["Ocean Health"], projects: "SILICYCLE (NWO Vidi), RETAKE/CDRmare, REPAIRS, PRELIFE", external: "GEOMAR Kiel, CDRmare consortium, Univ. Antwerp",
+    pubs: "Fuhr+ (2025) Comms Earth Env. calcite benthic weathering, Yao+ (2025) Earth's Future mCDR Germany", hindex: null },
   { id: "miller", name: "Cale Miller", position: "Assistant Professor", group: "Geochemistry", email: "c.a.miller@uu.nl",
-    expertise: "Marine biogeochemistry, coastal ecosystems, blue carbon",
+    expertise: "Marine biogeochemistry, coastal ecosystems, blue carbon, OAE biological impacts",
     skills: ["Experimental Lab Work","Field Work","Geochemical Modelling"],
-    topics: ["Blue carbon ecosystems","Ocean alkalinity enhancement","Carbon cycling in estuaries"],
-    pillars: ["Ocean Health"], projects: "C-BLUES (EU Horizon Europe)", external: "Sustainable Ocean Community UU, NIOZ",
-    pubs: "C-BLUES project, OAE bio-impacts (2024)", hindex: null },
+    topics: ["Blue carbon ecosystems","Ocean alkalinity enhancement","Carbon cycling in estuaries","Seagrass ecology","Arctic fjords","OAE biological impacts"],
+    pillars: ["Ocean Health"], projects: "C-BLUES (EU Horizon Europe), REPAIRS", external: "Sustainable Ocean Community UU, NIOZ, LOV Villefranche",
+    pubs: "Miller & Pernet (2025) OAE olivine/oyster alkalinity generation, Haag+ (2025) kelp CO₂ uptake Alaska", hindex: null },
   { id: "sangiorgi", name: "Francesca Sangiorgi", position: "Associate Professor", group: "Marine Palynology", email: "f.sangiorgi@uu.nl",
-    expertise: "Marine palynology, paleoceanography, polar climate",
+    expertise: "Marine palynology, paleoceanography, polar climate, harmful algal blooms",
     skills: ["Field Work","Microscopy / Palynology","Ocean Drilling (IODP)","Science Communication"],
-    topics: ["Antarctic climate change","Human impact on coastal areas","Harmful algal blooms","Marine biodiversity"],
-    pillars: ["Ocean Health"], projects: "IODP expeditions, SWAIS 2C", external: "NIOZ, IODP/ICDP, Univ. Bologna",
-    pubs: "IODP Antarctic expeditions (2023–25)", hindex: null },
+    topics: ["Antarctic climate change","Human impact on coastal areas","Harmful algal blooms","Marine biodiversity","Eutrophication","Land-sea nexus"],
+    pillars: ["Ocean Health"], projects: "IODP expeditions, SWAIS 2C, UU-NIOZ HABs, Sustainable Ocean Community (co-founder)", external: "NIOZ, IODP/ICDP, Univ. Bologna, FWC Florida",
+    pubs: "García-Moreiras+ (2025) dinocyst research Marine Micropaleontology, Lasch & Sangiorgi (2024) Whose Ocean?", hindex: null },
   { id: "peterse", name: "Francien Peterse", position: "Associate Professor", group: "Organic Geochemistry", email: "f.peterse@uu.nl",
     expertise: "Organic geochemistry, lipid biomarkers, paleoclimate",
     skills: ["Experimental Lab Work","Field Work","Biomarker Analysis"],
@@ -789,7 +789,7 @@ export default function ExpertiseSynergyMapper() {
                 fontSize: 10, textTransform: "uppercase", letterSpacing: "0.18em",
                 color: "#6DB8A0", fontWeight: 600, marginBottom: 6
               }}>
-                Environmental Earth Sciences Centre · Formation Tool
+                Utrecht Centre for Environmental Earth Sciences · Formation Tool
               </div>
               <h1 style={{
                 margin: 0, fontSize: 30, fontWeight: 800, color: "#fff",
@@ -798,7 +798,7 @@ export default function ExpertiseSynergyMapper() {
                 Expertise & Synergy
               </h1>
               <p style={{ margin: "8px 0 0", fontSize: 13, color: "rgba(255,255,255,0.55)", maxWidth: 480, lineHeight: 1.5, fontWeight: 400 }}>
-                Synergy of {stats.total} researchers working on Water Quality and Ocean Health within the Environmental Earth Sciences Centre.
+                Synergy of {stats.total} researchers working on Water Quality and Ocean Health within the Utrecht Centre for Environmental Earth Sciences.
               </p>
             </div>
             {/* Stats */}
@@ -887,7 +887,7 @@ export default function ExpertiseSynergyMapper() {
         borderTop: "1px solid #D1D9E0", background: "#F8FAFB", padding: "16px 36px",
         fontSize: 11, color: "#94A3B8", textAlign: "center"
       }}>
-        Environmental Earth Sciences Centre · Department of Earth Sciences · Utrecht University · Data from Theme 4 Skills Database (Feb 2026)
+        Utrecht Centre for Environmental Earth Sciences · Department of Earth Sciences · Utrecht University
       </div>
     </div>
   );
