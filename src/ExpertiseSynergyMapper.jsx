@@ -511,10 +511,11 @@ function ThemeBuilder({ researchers, onSelect, filter }) {
   const autoAssign = () => {
     const a = {};
     filtered.forEach(r => {
-      if (r.topics.some(t => /water|pfas|contamin|groundwater|drink|phospho|redox|remediat|mineral nucle/i.test(t))) a[r.id] = "biogeochem";
-      else if (r.topics.some(t => /alkalin|carbon.*remov|blue carbon|OAE|silicate.*weather|CDR|coastal.*carbon/i.test(t))) a[r.id] = "ocean_carbon";
-      else if (r.topics.some(t => /paleo|climate.*past|eocene|antarc|dinocyst|PETM|ocean.*acidif|dinoflag/i.test(t))) a[r.id] = "paleo_climate";
-      else if (r.topics.some(t => /monitor|imaging|nano|sediment|pore.*scale|turbid|algal|bioturb/i.test(t))) a[r.id] = "monitoring";
+      if (r.topics.some(t => /groundwater|pfas|contamin|remediat|subsurface util|ATES|underground|pore.*scale|reactive transport.*sub|virus transport|colloid/i.test(t))
+        || r.group?.includes("Hydrogeology")) a[r.id] = "gw_quality";
+      else if (r.topics.some(t => /water.*qual|nutrient|phospho|redox|mineral nucle|radionucl|inland water|N\/P|metal.*cycling|water-mineral|drink|sediment.*biogeochem|benthic.*photo|microb.*cycl|bioturb/i.test(t))) a[r.id] = "water_geochem";
+      else if (r.topics.some(t => /ocean|marine|alkalin|blue carbon|OAE|CDR|silicate.*weather|coastal|sediment.*transport|harmful.*algal|eutrophic|sea.*level|turbid|dinoflag|paleo.*ocean|antarc|eocene|climate.*past/i.test(t))) a[r.id] = "ocean_health";
+      else if (r.topics.some(t => /mineral|ferrous|particulate|imaging|stone.*weather|monitor|environ.*mineral/i.test(t))) a[r.id] = "integrated";
     });
     setAssignments(a);
   };
